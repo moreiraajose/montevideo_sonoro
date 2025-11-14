@@ -1,0 +1,1499 @@
+@font-face {
+    font-family: 'Ciudadana';
+    src: url('../fonts/ciudadana-regular.woff2') format('woff2'),
+        url('../fonts/ciudadana-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ciudadana-bold';
+    src: url('../fonts/ciudadana-bold.woff2') format('woff2'),
+        url('../fonts/ciudadana-bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ciudadana-light';
+    src: url('../fonts/ciudadana-light.woff2') format('woff2'),
+        url('../fonts/ciudadana-light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+:root {
+    --amarillo: #ffdd00;
+    /* --amarillo: #f8ee52; */
+    --negro: #000;
+    --blanco: #ffffff;
+    --rojo: #e1003b;
+    --ancho_maximo: 1280px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+}
+
+body {
+    /* background-color: #e1003b; */
+    /* font-family: 'Ultra', serif; */
+    font-family: 'Ciudadana', sans-serif;
+    font-size: 16px;
+    /* margin: 0; */
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: var(--amarillo);
+
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    color: var(--negro);
+
+}
+
+a :visited {
+    color: var(--negro);
+}
+
+a :hover {
+    color: var(--rojo);
+}
+
+h1 {
+    font-family: 'Ultra', serif;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: 'Ultra', serif;
+    font-weight: 400;
+    /* background-color: var(--rojo); */
+    /* color: #fff;
+    padding: 0.98em; */
+    /* border-radius: 0.5em; */
+    margin: 0 auto;
+}
+
+h3 {
+    color: #fff;
+    font-weight: 500;
+    font-family: 'Ultra', serif;
+}
+
+.arrow {
+    position: absolute;
+    z-index: 9;
+    bottom: 50px;
+    left: 50%;
+    /* transform: translate(90%,-50%); */
+}
+
+.arrow span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-bottom: 4px solid var(--rojo);
+    border-right: 4px solid var(--rojo);
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 2s infinite;
+    padding: 5px;
+}
+
+.button {
+    background-color: #15c98e;
+    /* Green */
+    font-weight: bold;
+    border: none;
+    color: #fff;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2em;
+    border-radius: 0.51em;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px, -20px);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(20px, 20px);
+    }
+}
+
+.animation {
+    position: relative;
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.buscar_input {
+    margin-top: 4em;
+    padding: 2em;
+    /* width: 50%; */
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.barrio_copy {
+    width: fit-content;
+    min-width: 68%;
+    /* max-width: 68%; */
+    padding: 1.5em;
+    margin-top: 2em;
+    /* margin-bottom: 1em; */
+    border-radius: 0em 1em 0em 1em;
+    font-size: 1.5em;
+    padding: 1em;
+    padding-bottom: 0;
+    color: var(--rojo);
+    background-color: var(--blanco);
+    padding: 2em;
+    min-height: 50vh;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    margin-left: 2em;
+}
+
+
+.barrios_letra {
+    display: flex;
+    width: var(--ancho_maximo);
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.6em;
+    color: #000;
+    justify-content: center;
+    margin-top: 2em;
+
+}
+
+.back_canciones {
+    background-image: url("../images/back.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.cancion_artista,
+.cancion_resultado {
+    /* border: 5px solid red; */
+    /* padding: 0.5em; */
+    width: fit-content;
+    min-width: 68%;
+    /* max-width: 68%; */
+    padding: 0.5em;
+    background-color: var(--amarillo);
+    margin-top: 2em;
+    /* margin-bottom: 1em; */
+    border-radius: 0em 1em 0em 1em;
+    font-size: 1.5em;
+    padding: 1em;
+    padding-bottom: 0;
+    color: var(--blanco);
+}
+
+.cancion_resultado {
+    width: 100%;
+    font-size: 1em;
+}
+
+.cancion_resultado h1 {
+    color: var(--rojo);
+    padding-left: 0.5em;
+    /* width: fit-content;
+    min-width: 68%; */
+}
+
+.cancion_resultado h1 span {
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family: 'Ciudadana', sans-serif;
+    color: var(--blanco);
+    text-align: left;
+    display: inline;
+    text-transform: initial;
+    padding-left: 0.5em;
+    font-weight: bolder;
+}
+
+.cancion_resultado h2 {
+    color: var(--negro);
+    /* width: fit-content;
+    min-width: 68%; */
+}
+
+.cancion_detalle {
+    background-color: var(--amarillo);
+    width: 86%;
+    margin-top: -3em;
+    margin-left: 8%;
+    padding-top: 4em;
+    padding-left: 3em;
+    padding-bottom: 2em;
+    max-width: var(--ancho_maximo);
+    border-radius: 1em;
+    margin-bottom: 4em;
+
+}
+
+.cancion_letra {
+    background-color: var(--amarillo);
+    color: var(--rojo);
+    text-transform: initial;
+    width: 100%;
+    /* margin: 0 auto; */
+    /* max-width: var(--ancho_maximo); */
+    /* padding-top: 4em; */
+    /* padding-left: 4em; */
+    /* padding-bottom: 6em; */
+    /* border-radius: 2em; */
+    /* margin-top: 4em; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: center;
+    align-items: center;
+}
+
+.cancion_nota {
+    width: 100%;
+    margin-top: 1.5em;
+    text-align: left;
+    color: var(--negro);
+    padding: 1em;
+    font-size: 1em;
+}
+
+.cancion_letra h1 {
+    font-family: 'Ciudadana', sans-serif;
+    font-weight: bold;
+    text-transform: initial;
+    font-style: italic;
+
+}
+
+.cancion_social {
+    position: relative;
+    width: 100%;
+    /* margin-top: 2em; */
+    /* right: 0px; */
+    text-align: right;
+    color: var(--negro);
+    display: flex;
+    align-content: center;
+    justify-content: flex-end;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 0.8em;
+    border-radius: 0em 1em 1em 1em;
+    padding: 0;
+}
+
+.cancion_social img {
+    width: 50px;
+    height: auto;
+    margin: 0.2em;
+    padding: 0em;
+    background-color: var(--amarillo);
+}
+
+.cancion_video {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    bottom: -2em;
+}
+
+.cancion_icono img {
+    width: 45px;
+    height: auto;
+    margin-right: 1.5em;
+}
+
+.canciones_flecha_list {
+    font-weight: bold;
+    display: inline-block;
+}
+
+.canciones_flecha_list img {
+    vertical-align: middle;
+    padding: 0.5em;
+    width: 4em !important;
+    height: auto;
+}
+
+
+
+circle {
+    fill: #f8ee52;
+    mix-blend-mode: multiply;
+}
+
+.content_about {
+    margin-top: 5em;
+    background-color: var(--rojo);
+    text-align: center;
+    width: 100%;
+    max-width: var(--ancho_maximo);
+    margin: 0 auto;
+    padding-top: 5em;
+    padding-bottom: 2em;
+}
+
+.content_about h1 {
+    text-align: center;
+    margin-bottom: 0.3em;
+    color: var(--amarillo);
+}
+
+.content_anterior {
+    font-size: 1.2em;
+    font-family: 'Ultra', serif;
+    width: fit-content;
+
+}
+
+.content_siguiente {
+    font-size: 1.2em;
+    font-family: 'Ultra', serif;
+    width: fit-content;
+    text-align: right;
+}
+
+.content_relacionado {
+    width: 100%;
+    margin: 0 auto;
+    display: inline-flex;
+    justify-content: space-between;
+    margin: 1.4em;
+    background-color: var(--amarillo);
+    color: var(--rojo);
+    transition: 0.5s;
+}
+
+.content_relacionado a {
+    padding: 1.4em;
+    color: var(--rojo);
+    line-height: 1em;
+    transition: 0.5s;
+
+}
+
+.content_relacionado a:hover {
+    padding: 1.2em;
+    color: var(--blanco);
+    background-color: var(--rojo);
+
+}
+
+.content_creditos {
+    width: 100%;
+    max-width: var(--ancho_maximo);
+    text-align: left;
+    margin: 0 auto;
+    min-height: 50vh;
+    padding: 1em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.content_creditos h2 {
+    text-align: center;
+    margin-bottom: 0.3em;
+}
+
+.content_creditos p {
+    text-align: left !important;
+}
+
+.content_detalle {
+    margin: 0 auto;
+    width: 100%;
+    min-height: 100%;
+    text-align: center;
+    color: #000;
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center; */
+    background-color: var(--amarillo);
+
+}
+
+
+.content_index {
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+    color: #000;
+    padding-top: 5em;
+}
+
+.content_margen {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+}
+
+
+
+.content_margen_copy {
+    font-size: 1.2em;
+
+}
+
+.content_margen h1 {
+    color: var(--rojo);
+
+}
+
+.content_expectativa {
+    width: 30%;
+    /* position: absolute; */
+    margin: 0 auto;
+    z-index: 99;
+    text-align: center;
+    margin-bottom: 8em;
+
+}
+
+.content_expectativa h1 {
+    color: var(--amarillo);
+}
+
+.content_expectativa h2 {
+    color: var(--blanco);
+}
+
+.container_anima {
+    overflow: hidden;
+    background-color: var(--rojo);
+}
+
+.container {
+    position: relative;
+}
+
+
+.content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: 0 auto;
+    /* min-height: 100vh; */
+    background-color: var(--amarillo);
+
+}
+
+.content_cierre {
+    width: 100%;
+    position: relative;
+    display: block;
+    padding: 2em;
+    text-align: center;
+    border-top: 2px solid var(--rojo);
+    background-color: var(--blanco);
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.content_cierre p {
+    padding: 1em;
+}
+
+.content_cierre img {
+    margin: 2em;
+}
+
+.content_search {
+    padding: 1em;
+    padding-top: 4em;
+    /* background-color: #f8ee52; */
+    /* max-width: var(--ancho_maximo); */
+    margin: 0 auto;
+    max-width: var(--ancho_maximo);
+}
+
+.content_cancion {
+    /* background-color: #f8ee52; */
+    max-width: var(--ancho_maximo);
+    margin: 0 auto;
+}
+
+.content_cancion h1 {
+    color: var(--rojo);
+    padding-left: 0.5em;
+    /* width: fit-content;
+    min-width: 68%; */
+}
+
+.content_cancion h1 span {
+    color: #000;
+    text-align: left;
+    display: inline;
+    text-transform: initial;
+    padding-left: 0.5em;
+}
+
+.content_cancion_iconos {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.content_iconos_child {
+    margin: 10px;
+    padding: 10px;
+    /* border: 1px solid red; */
+    flex: calc(25% - 42px);
+    /* 25% - (margins + paddings + borders) */
+    display: flex;
+    color: #000;
+    font-size: 0.9em;
+    text-align: left;
+}
+
+.content_iconos_child a {
+    display: contents;
+    color: #000;
+}
+
+.content_iconos_child p {
+    text-align: left !important;
+}
+
+.content_iconos_spacer {
+    margin: 0 10px;
+    padding: 0 10px;
+    flex: calc(25% - 40px);
+    /* 25% - (margins + paddings) */
+}
+
+.content p {
+    /* margin: 0; */
+    text-align: center;
+    line-height: 1.2;
+    letter-spacing: 0px;
+}
+
+.content_municipio {
+    padding-top: 3em;
+    background-color: var(--blanco);
+    max-width: var(--ancho_maximo);
+    margin: 0 auto;
+    padding-bottom: 4em;
+    border-radius: 0 2em 1em 1em;
+    overflow: hidden;
+}
+
+.content_mapa {
+    width: 100%;
+    position: relative;
+    display: block;
+    height: 720px;
+}
+
+
+.content span {
+    display: inline-block;
+}
+
+.content_letra {
+    font-size: 0.9em;
+    line-height: 1.2em;
+    /* text-align: left;
+    margin: 0 auto;
+    width: 60%;
+    left: 20%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+    flex-wrap: nowrap; */
+    width: fit-content;
+    /* min-width: 40vw; */
+
+}
+
+.content_letra h3 {
+    margin-top: 1em;
+    text-align: right !important;
+}
+
+.content_letra p {
+
+    font-weight: 600;
+    /* color: #f8ee52; */
+    text-align: left !important;
+}
+
+.content_letra i {
+
+    /* font-weight: 600; */
+    /* color: #f8ee52; */
+    text-align: right !important;
+    text-transform: uppercase;
+    display: block;
+    color: var(--rojo);
+}
+
+.content_social {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.content_social img {
+    max-width: 80px;
+    /* width: 20%; */
+}
+
+.claim {
+    padding: 5em;
+    padding-bottom: 2em;
+    color: var(--blanco);
+}
+
+.claim p {
+    font-size: 1.5em;
+}
+
+.footer {
+    min-height: 8em;
+    /* background-color: #15c98e; */
+    background-color: var(--rojo);
+    width: 100%;
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center; */
+    text-align: center;
+    /* padding-top: 2em; */
+    border-radius: 2em;
+}
+
+.footer img {
+    /* margin-left: 2em; */
+    /* margin-top: 1em; */
+    width: 250px;
+    height: auto;
+}
+
+.footer_municipio img {
+    margin-top: 0em;
+    width: 100px;
+    height: auto;
+}
+
+.footer h2 {
+    color: var(--amarillo);
+    margin-bottom: 1em;
+}
+
+hr {
+    border-top: 1px dashed white;
+}
+
+input {
+    background-color: var(--blanco);
+    border: 2px solid var(--blanco);
+    padding: 0.5em;
+    border-radius: 0.5em;
+    font-family: 'Ultra', serif;
+    font-size: 1.52em;
+    color: var(--rojo);
+}
+
+input[type="search" i] {
+    color: var(--negro);
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family: 'Ciudadana', sans-serif;
+    margin-right: 10px;
+}
+
+.lista_item {
+    /* padding-bottom: 3em; */
+    /* color: var(--amarillo); */
+
+}
+
+
+
+.lista_item_resultados {
+    background-color: var(--amarillo);
+    padding: 0.5em;
+}
+
+.letra {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.letra_cancion {
+    border-radius: 0 0 1em 1em;
+    background-color: var(--blanco);
+    color: var(--rojo);
+    /* margin-bottom: 3em; */
+    padding: 2em;
+    padding-bottom: 4em;
+    padding-bottom: 4em;
+    font-weight: 600;
+    /* font-family: 'Ultra', serif; */
+    font-size: 1.5em;
+    margin-top: -1em;
+}
+
+.letra_cancion h3 {
+    color: var(--rojo);
+    padding: 0.5em;
+    padding-top: 0;
+    font-size: 1.8em;
+}
+
+.letras_pined {
+    display: flex;
+    flex-direction: row;
+    /* height: 40vh; */
+    flex: 1;
+    justify-content: center;
+    padding: 1em;
+    align-items: center;
+    width: 50%;
+    min-width: 40vw;
+    /* color: #f8ee52; */
+    align-content: center;
+}
+
+
+
+.logo_index {
+    display: flex;
+    /* width: 100vw; */
+    height: 98vh;
+    margin: 0 auto;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    background-color: transparent;
+    z-index: 9;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--amarillo);
+}
+
+.logo_index img {
+    width: 100%;
+    max-width: 580px;
+}
+
+.lang {
+    display: contents;
+}
+
+
+#map_control_button {
+    background-color: var(--amarillo);
+
+}
+
+.nav {
+    position: fixed;
+    left: 1em;
+    top: 1em;
+    z-index: 999;
+    font-weight: bold;
+    display: inline;
+}
+
+.nav img {
+    width: 70px;
+    height: auto;
+    vertical-align: middle;
+    margin-left: 1em;
+}
+
+
+select {
+    font-size: 1.6em;
+    font-family: 'Ultra', serif;
+    /* background-color: var(--amarillo); */
+    background-color: var(--blanco);
+    color: var(--rojo);
+    border-color: var(--rojo);
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+
+.wrapper {
+    /* min-height: 100vh; */
+    overflow: hidden;
+}
+
+.factsContainer {
+    padding: 0em 0em;
+    text-align: center;
+    font-size: 1.4em;
+    /* line-height: 10vh; */
+}
+
+.factsContainer h2 {
+    font-size: 1.8em;
+    transform: scale(0);
+    padding: 2em 0em;
+    margin-bottom: 5vh;
+    color: #fff;
+    text-transform: uppercase;
+
+}
+
+.factsContainer_sm {
+    display: flex;
+    /* width: 100%; */
+    width: fit-content;
+}
+
+.fact {
+    display: flex;
+    flex-direction: row;
+    /* height: 40vh; */
+    flex: 1;
+    justify-content: center;
+    padding: 1em;
+    align-items: center;
+    width: 50%;
+    min-width: 40vw;
+    color: var(--rojo);
+    border-radius: 2em;
+    border: 3px solid #fff;
+    margin: 1em;
+    background-color: var(--blanco);
+}
+
+.fact:nth-of-type(even) {
+    background-color: var(--rojo);
+    color: var(--blanco);
+    border: 0px solid #fff;
+}
+
+/*
+.content_letra:nth-of-type(even) i {
+    color: #fff;
+} */
+
+#container_letras {
+    position: relative;
+
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+
+.panel {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.5em;
+    text-align: center;
+    position: relative;
+    box-sizing: border-box;
+    padding: 10px;
+    /* background-color: #e1003b; */
+    overflow: hidden;
+}
+
+
+.end-pin {
+    background-color: var(--rojo);
+
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    max-width: 550px;
+    display: block;
+}
+
+.pagination {
+    font-weight: bold;
+    background-color: var(--amarillo);
+    border-radius: 1em;
+    padding-left: 1em;
+    margin-top: 2em;
+}
+
+.pin-spacer:nth-of-type(even) {
+    color: #fff;
+    background-color: var(--rojo);
+}
+
+.pin-spacer:nth-of-type(odd) {
+    color: #000;
+    background-color: var(--amarillo);
+}
+
+.pin-spacer.content_letra i:nth-of-type(even) {
+    color: var(--rojo);
+}
+
+
+.rojo {
+    background-color: var(--rojo);
+}
+
+.video,
+.video_home {
+    width: 100%;
+    /* max-width: 730px; */
+    text-align: right;
+    background-color: var(--rojo);
+    /* padding: 1em; */
+    /* width: fit-content; */
+    border-radius: 1em;
+
+}
+
+
+
+
+.video iframe,
+.video object,
+.video embed,
+.video figure {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 650px;
+    /* padding-bottom: 56.25%; */
+    margin: 1.5em 0;
+}
+
+@media only screen and (max-width: 1280px) {
+    .barrios_letra {
+        width: auto;
+    }
+
+    .content_municipio {
+        padding-top: 2em;
+    }
+}
+
+
+@media only screen and (max-width: 780px) {
+
+    .buscar_input {
+        padding: 1em;
+    }
+
+    .barrio_copy {
+        background-color: var(--amarillo);
+        font-size: 0.8em;
+        padding: 2em;
+    }
+
+    .content_cancion {
+        padding-top: 4em;
+    }
+
+    .content_cierre {
+        flex-direction: column;
+    }
+
+    .content_cierre img {
+        margin: 1.5em;
+    }
+
+    .cancion_artista {
+        width: 90%;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .claim {
+        padding: 1em;
+        padding-top: 3em;
+
+    }
+
+    .content_letra {
+        /* min-width: 70vw; */
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h3 {
+        font-size: 0.9em;
+
+    }
+
+
+    .content_detalle {
+        padding-top: 1em;
+        padding-bottom: 2em;
+    }
+
+    .content_expectativa {
+        width: 100%;
+    }
+
+    .content_margen {
+        width: 90%;
+    }
+
+    .fact {
+        align-items: center;
+        min-width: 70vw;
+    }
+
+    .logo_index img {
+        width: 90%;
+    }
+
+    .letra {
+        width: 90%;
+    }
+
+    .letra_cancion {
+        font-size: 1.2em;
+    }
+
+    .letra_cancion h3 {
+        font-size: 1.2em;
+    }
+
+    select {
+        font-size: 1.2em;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .buscar_input {
+        padding: 0.2em;
+    }
+
+    .cancion_nota {
+        font-size: 1em;
+    }
+
+
+    .content_relacionado {
+        padding: 0.4em;
+        margin: 0;
+        margin-bottom: 1.5em;
+        font-size: 0.8em;
+        line-height: 1em;
+    }
+
+    .content_letra {
+        /* min-width: 80vw; */
+        font-size: 0.8em;
+    }
+
+    h1 {
+        font-size: 1.3em;
+    }
+
+    h3 {
+        font-size: 0.9em;
+    }
+
+    .cancion_artista {
+        width: fit-content;
+        /* margin-left: 1em; */
+    }
+
+    .cancion_detalle {
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .content_expectativa {
+        width: 100%;
+    }
+
+    .content_margen {
+        width: 90%;
+    }
+
+    .content_iconos_child {
+        flex: calc(50% - 42px);
+    }
+
+    .factsContainer h2 {
+        font-size: 1em;
+
+    }
+
+    .fact {
+        align-items: center;
+        min-width: 90vw;
+    }
+
+    .fact:nth-last-child(2) {
+        width: 100vw;
+    }
+
+    input {
+        padding: 0.4em;
+        font-size: 1.2em;
+    }
+
+    .logo_index {
+        height: 90vh;
+    }
+
+    .letra {
+        width: 80%;
+    }
+
+    .letra_cancion {
+        font-size: 1em;
+    }
+    .nav {
+        left: 0.3em;
+        top: 0.3em;
+       
+    }
+    
+    .nav img {
+        width: 70px;
+        height: auto;
+        margin-left: 0em;
+    }
+    
+
+    .nav img {
+        width: 55px;
+    }
+
+    .navegacion {
+        background-color: var(--amarillo);
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .content_letra {
+        /* min-width: 80vw; */
+        font-size: 0.7em;
+        padding: 1em;
+    }
+
+    .content_iconos_child {
+        flex: calc(90% - 42px);
+    }
+
+    .letra_cancion h3 {
+        font-size: 1em;
+    }
+}
+
+
+/* MAPS  */
+#infomapa {
+    background-color: var(--amarillo);
+}
+
+#infomapa a:hover {
+    background-color: var(--rojo);
+}
+
+#infomapa h2 {
+    background-color: var(--rojo);
+    color: var(--blanco);
+    padding: 0.2em;
+}
+
+#infomapa h3 {
+    color: var(--amarillo);
+    color: var(--rojo);
+    padding: 0em;
+    font-size: 1.52em;
+    font-family: 'Ciudadana', sans-serif;
+}
+
+#infomapa h4 {
+    background-color: var(--rojo);
+    color: var(--amarillo);
+    padding: 0.5em;
+    font-size: 1.5em;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+/* btn cerrar */
+.gm-ui-hover-effect>span {
+    background-color: var(--rojo);
+    /* width: 20px !important;
+    height: 20px !important; */
+}
+
+/* btn ver mi ubicación */
+.map_control_button {
+    background-color: var(--rojo);
+    padding: 1.3em;
+    border-radius: 10px;
+    border: 5px var(--amarillo);
+    ;
+    color: var(--blanco);
+}
+
+.gm-style .gm-style-iw-tc {
+    -webkit-filter: drop-shadow(0 4px 2px var(--amarillo));
+    filter: drop-shadow(0 4px 2px var(--amarillo));
+}
+
+.gm-style-iw {
+    width: 350px !important;
+    top: 15px !important;
+    left: 0px !important;
+    background-color: #fff;
+    box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
+    border: 1px solid rgba(72, 181, 233, 0.6);
+    border-radius: 2px 2px 10px 10px;
+    background-color: var(--amarillo);
+}
+
+#iw-container {
+    margin-bottom: 10px;
+}
+
+#iw-container .iw-title {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    padding: 10px;
+    background-color: var(--rojo);
+    color: white;
+    margin: 0;
+    border-radius: 2px 2px 0 0;
+}
+
+#iw-container .iw-content {
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+    margin-right: 1px;
+    padding: 15px 5px 20px 15px;
+    max-height: 140px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.iw-content img {
+    float: right;
+    margin: 0 5px 5px 10px;
+}
+
+.iw-subTitle {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 5px 0;
+}
+
+.iw-bottom-gradient {
+    position: absolute;
+    width: 326px;
+    height: 25px;
+    bottom: 10px;
+    right: 18px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+
+
+/* BARRIOS */
+
+
+
+.large-heading {
+    font-size: max(1em, calc(100vw / 32));
+    /* font-size: 1.5em; */
+    font-weight: 400;
+    letter-spacing: -0.06em;
+}
+
+.mascara {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.mascara img {
+    width: 100%;
+    height: auto;
+}
+
+.medium-heading {
+    /* font-size: max(1.25rem, calc(100vw / 15 * 0.8)); */
+    font-size: max(1.25rem, calc(100vw / 24 * 0.8));
+    font-size: 2.5em;
+    /* font-weight: 500; */
+    /* letter-spacing: -0.06em; */
+    padding: 0.5em;
+    /* background-color: var(--blanco); */
+    color: var(--rojo);
+    border-radius: 0 0.5em 0 0;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-weight: 400;
+    /* text-transform: uppercase; */
+    text-transform: uppercase;
+
+}
+
+.ambassadors {
+    /* padding: max(4rem, calc(100vw / 20 * 3)) 0; */
+    padding: 2em;
+    padding-bottom: 4em;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.ambassadors p {
+    margin: 0.2em;
+
+}
+
+.ambassadors--gsap {
+    color: var(--rojo);
+}
+
+.ambassadors--gsap .ambassadors__top,
+.ambassadors--gsap .ambassadors__bottom {
+    translate: calc(-100% + 100vw) !important;
+}
+
+.ambassadors__text {
+    width: fit-content;
+    padding-right: 2em;
+    background-color: var(--blanco);
+    border-radius: 0 1.5em 0 0;
+    text-align: left;
+}
+
+.ambassadors__top,
+.ambassadors__bottom {
+    position: relative;
+    display: flex;
+    width: max-content;
+    will-change: transform;
+}
+
+.ambassadors .ambassador {
+    margin-right: 1em;
+}
+
+@keyframes toLeft {
+    to {
+        transform: translateX(calc(-50%));
+    }
+}
+
+@keyframes toRight {
+    to {
+        transform: translateX(0);
+    }
+}
+
+.ambassador {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+}
+
+.ambassador__image {
+    flex-shrink: 0;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.ambassador__image img,
+.ambassador__image video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ambassador .role {
+    /* opacity: 0.5; */
+    color: #000;
+}
